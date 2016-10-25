@@ -1,16 +1,37 @@
 <!DOCTYPE html>
 <html ng-app="userProfiles">
+
 <head>
-    <meta charset="utf-8">
-    <title>mini-userProfiles</title>
-    <link rel="stylesheet" href="styles.css"></link>
+	<meta charset="utf-8">
+	<title>mini-userProfiles</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="styles.css"></link>
 </head>
+
 <body ng-controller="MainController">
-    
-    {{thisAppIsBroken}}
-    
-     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
-     <script src="app.js"></script>
-     <script src="controller.js"></script>
+
+	<div class="container">
+		<h2>User Profiles Project</h2>
+	</div>
+
+	<div class="container">
+		<div ng-repeat="user in users" ng-class="{favorite: user.isFavorite}">
+			<img ng-src="{{user.avatar}}" alt="">
+			<span>{{user.first_name}}</span>
+			<span>{{user.last_name}}</span>
+			<button class="btn btn-primary" ng-click="toggleFavorite(user.id)">+</button>
+		</div>
+	</div>
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
+	<script src="app.js"></script>
+	<script src="controller.js"></script>
+	<script src="service.js"></script>
+
+	</script>
 </body>
+
 </html>
